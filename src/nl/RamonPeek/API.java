@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import nl.RamonPeek.Members.Member;
 import nl.RamonPeek.Messaging.Message;
 import nl.RamonPeek.Messaging.MessageType;
 import nl.RamonPeek.Ranking.Rank;
@@ -20,6 +21,7 @@ public class API extends JavaPlugin implements Listener {
 	private static Server server_instance;
 	private static Message message_instance;
 	private static Rank rank_instance;
+	private static Member member_instance;
 	
 	public static API getInstance() {
 		return api_instance;
@@ -37,6 +39,10 @@ public class API extends JavaPlugin implements Listener {
 		return rank_instance;
 	}
 	
+	public static Member getMemberInstance() {
+		return member_instance;
+	}
+	
 	public void onEnable() {
 		saveConfig();
 		reloadConfig();
@@ -44,6 +50,7 @@ public class API extends JavaPlugin implements Listener {
 		server_instance = new Server();
 		message_instance = new Message();
 		rank_instance = new Rank();
+		member_instance = new Member();
 		rank_instance.setRank(Bukkit.getPlayer("iRamonHD"), RankType.ADMIN);
 		PluginManager manager = Bukkit.getServer().getPluginManager();
 		manager.registerEvents(this, this);
@@ -51,7 +58,7 @@ public class API extends JavaPlugin implements Listener {
 	}
 
 	public void onDisable() {
-		broadcast(MessageType.WARNING, "Warning: Server reloading!");
+		//broadcast(MessageType.WARNING, "Warning: Server reloading!");
 	}
 	
 	//METHODS
