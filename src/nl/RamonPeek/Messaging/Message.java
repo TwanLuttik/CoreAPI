@@ -1,18 +1,21 @@
 package nl.RamonPeek.Messaging;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import net.md_5.bungee.api.ChatColor;
 import nl.RamonPeek.API;
+import nl.RamonPeek.Ranking.Rank;
 import nl.RamonPeek.Server.Server;
 
 public class Message implements Listener {
 
 	API api = API.getInstance();
 	Server server_instance = new Server();
+	Rank rank_instance = new Rank();
 	
 	public void broadcast(MessageType mt, String msg) {
 		switch(mt) {
@@ -30,8 +33,8 @@ public class Message implements Listener {
 	
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent e) {
-		//Player p = e.getPlayer();
-		//e.setFormat(rankhandler_instance.getRankPrefix(p) + p.getName() + ChatColor.DARK_GRAY + ": " + ChatColor.WHITE + e.getMessage());
+		Player p = e.getPlayer();
+		e.setFormat(rank_instance.getRankPrefix(p) + p.getName() + ChatColor.DARK_GRAY + ": " + ChatColor.WHITE + e.getMessage());
 		
 	}
 	

@@ -1,3 +1,26 @@
 name: Core
 main: nl.RamonPeek.API
 version: 0.0.1
+
+commands:
+  Stone:
+    description: test
+  Iron:
+    description: test
+  Gold:
+    description: test
+  Diamond:
+    description: test
+  Emerald:
+    description: test
+  Helper:
+    description: test
+  Admin:
+    description: test
+  Warn:
+    description: test
+  Not:
+    description: test
+  Conf:
+    description: test
+  
