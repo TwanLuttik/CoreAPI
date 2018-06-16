@@ -80,7 +80,7 @@ public class API extends JavaPlugin implements Listener {
 		}else if(cmd.getName().equalsIgnoreCase("Conf")) {
 			getMessageInstance().broadcast(MessageType.CONFIRMATION, "TEST CONFIRMATION");
 		}else if(cmd.getName().equalsIgnoreCase("Not")) {
-			getMessageInstance().broadcast(MessageType.NOTIFICATION, "TEST Notification");
+			getMessageInstance().broadcast(MessageType.NOTIFICATION, "TEST NOTIFICATION");
 		}
 		return false;
 	}
